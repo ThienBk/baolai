@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Bảo Lai International – Keo silicon & keo dán xây dựng</title>
+    <link rel="icon" type="image/x-icon" href="./images/baolai-logo.svg">
+    <style>
+        :root {
+            --bg: #f6f8fb;
+            --surface: #fff;
+            --text: #1b2433;
+            --muted: #5b6678;
+            --brand: #1d4f8a;
+            --brand2: #c8962e;
+            --line: #dde3ec;
+            --hero1: #14355e;
+            --hero2: #1d4f8a;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0f141c;
+                --surface: #18202c;
+                --text: #e8edf5;
+                --muted: #9aa6b8;
+                --brand: #6aa6ec;
+                --brand2: #e0b04f;
+                --line: #2a3545;
+                --hero1: #0b1c33;
+                --hero2: #16406f
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0f141c;
+            --surface: #18202c;
+            --text: #e8edf5;
+            --muted: #9aa6b8;
+            --brand: #6aa6ec;
+            --brand2: #e0b04f;
+            --line: #2a3545;
+            --hero1: #0b1c33;
+            --hero2: #16406f
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px))
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0 0 auto;
+            height: env(safe-area-inset-top, 0px);
+            background: var(--hero1);
+            z-index: 60
+        }
+
+        header {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            z-index: 50;
+            background: var(--hero1);
+            color: #fff
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: .12em;
+            color: #fff;
+            text-decoration: none
+        }
+
+        .logo b {
+            color: var(--brand2)
+        }
+
+        nav a {
+            color: #dbe6f5;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 15px
+        }
+
+        nav a:hover {
+            color: #fff
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-size: 26px
+        }
+
+        @media(max-width:720px) {
+            .burger {
+                display: block
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background: var(--hero1);
+                padding: 8px 16px 14px
+            }
+
+            nav.open {
+                display: block
+            }
+
+            nav a {
+                display: block;
+                margin: 0;
+                padding: 10px 0;
+                border-top: 1px solid rgba(255, 255, 255, .12)
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--hero1), var(--hero2));
+            color: #fff;
+            padding: 64px 16px 72px;
+            text-align: center
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            font-size: clamp(26px, 5vw, 44px);
+            line-height: 1.2
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 24px;
+            color: #d6e3f5
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 0;
+            cursor: pointer;
+            font-size: 15px
+        }
+
+        .btn.gold {
+            background: var(--brand2);
+            color: #1b1b1b
+        }
+
+        .btn.ghost {
+            border: 1px solid rgba(255, 255, 255, .5);
+            color: #fff;
+            margin-left: 8px
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 52px 16px
+        }
+
+        h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            margin: 0 0 8px;
+            color: var(--brand)
+        }
+
+        h2+.sub {
+            color: var(--muted);
+            margin: 0 0 26px
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 18px
+        }
+
+        .num {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--brand2);
+            color: #1b1b1b;
+            font-weight: 700;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-size: 14px
+        }
+
+        .about {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin-bottom: 20px
+        }
+
+        .about p {
+            margin: 0 0 10px
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px
+        }
+
+        .tab {
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 14px
+        }
+
+        .tab.on {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand)
+        }
+
+        :root[data-theme="dark"] .tab.on {
+            color: #0f141c
+        }
+
+        .prod {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s
+        }
+
+        .prod:focus-visible {
+            outline: 3px solid var(--brand2)
+        }
+
+        .hov {
+            position: absolute;
+            inset: 0;
+            padding: 18px;
+            color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .25s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden
+        }
+
+        .hov h4 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            color: #fff
+        }
+
+        .hov ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 14.5px;
+            color: #fff
+        }
+
+        .hov li {
+            margin-bottom: 5px
+        }
+
+        .hov li:nth-child(n+5),
+        .hov h4:nth-of-type(2),
+        .hov ul:nth-of-type(2) {
+            display: none
+        }
+
+        .hov::after {
+            content: "Bấm để xem chi tiết →";
+            margin-top: auto;
+            font-weight: 700;
+            padding-top: 10px
+        }
+
+        @media(hover:hover) {
+            .prod:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, .25)
+            }
+
+            .prod:hover .hov {
+                opacity: 1;
+                visibility: visible
+            }
+        }
+
+        .tg {
+            pointer-events: none
+        }
+
+        #modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, .6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px
+        }
+
+        #modal.open {
+            display: flex
+        }
+
+        .mbox {
+            background: var(--surface);
+            color: var(--text);
+            width: 100%;
+            max-width: 640px;
+            max-height: 90vh;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: pop .22s
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(.97)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .mh {
+            padding: 20px 52px 18px 20px;
+            color: #fff;
+            position: relative
+        }
+
+        .mh h3 {
+            margin: 0;
+            font-size: 22px
+        }
+
+        .mh small {
+            opacity: .92
+        }
+
+        .mx {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 0;
+            background: rgba(255, 255, 255, .25);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer
+        }
+
+        .mb {
+            padding: 18px 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .mb>p {
+            margin: 0 0 6px;
+            color: var(--muted)
+        }
+
+        .mf {
+            display: flex;
+            gap: 10px;
+            padding: 12px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+            border-top: 1px solid var(--line)
+        }
+
+        .mf a {
+            flex: 1;
+            text-align: center;
+            padding: 11px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            background: #1faa4b
+        }
+
+        .mf a.zl {
+            background: #0068ff
+        }
+
+        @media(max-width:600px) {
+            #modal {
+                align-items: flex-end;
+                padding: 0
+            }
+
+            .mbox {
+                border-radius: 18px 18px 0 0;
+                max-height: 92vh
+            }
+        }
+
+        .top {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 16px;
+            color: #fff
+        }
+
+        .tube {
+            width: 34px;
+            height: 76px;
+            border-radius: 6px 6px 10px 10px;
+            background: rgba(255, 255, 255, .88);
+            position: relative;
+            flex: none
+        }
+
+        .tube::before {
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: -9px;
+            width: 16px;
+            height: 10px;
+            background: rgba(255, 255, 255, .7);
+            border-radius: 3px 3px 0 0
+        }
+
+        .tube i {
+            position: absolute;
+            inset: 14px 6px 8px;
+            border-radius: 3px;
+            background: var(--c)
+        }
+
+        .top h3 {
+            margin: 0;
+            font-size: 19px
+        }
+
+        .top small {
+            opacity: .9
+        }
+
+        .body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .body p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px
+        }
+
+        .more {
+            display: block
+        }
+
+        .pimg {
+            background: #fff;
+            border: 1px dashed var(--line);
+            border-radius: 12px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            margin-bottom: 14px;
+            color: #777;
+            font-size: 14px
+        }
+
+        .pimg img {
+            max-height: 240px;
+            max-width: 100%;
+            object-fit: contain
+        }
+
+        .up {
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--brand);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 5px 12px
+        }
+
+        .up input {
+            display: none
+        }
+
+        .timg {
+            width: 50px;
+            height: 84px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            flex: none;
+            padding: 3px
+        }
+
+        .spec {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            font-size: 14px
+        }
+
+        .spec td {
+            padding: 7px 0;
+            border-bottom: 1px solid var(--line);
+            text-align: left
+        }
+
+        .spec td:first-child {
+            color: var(--muted);
+            width: 38%
+        }
+
+        .more h4 {
+            margin: 10px 0 4px;
+            font-size: 14px;
+            color: var(--brand)
+        }
+
+        .more ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 14px;
+            color: var(--text)
+        }
+
+        .tg {
+            margin-top: auto;
+            align-self: flex-start;
+            background: none;
+            border: 0;
+            color: var(--brand);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 0
+        }
+
+        .tw {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+            margin-bottom: 22px
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 560px;
+            font-size: 14.5px
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: right;
+            border-bottom: 1px solid var(--line)
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left
+        }
+
+        th {
+            background: var(--hero1);
+            color: #fff;
+            font-weight: 600;
+            font-size: 13.5px
+        }
+
+        tr:last-child td {
+            border-bottom: 0
+        }
+
+        caption {
+            text-align: left;
+            font-weight: 700;
+            padding: 12px;
+            color: var(--brand)
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .contact {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+        }
+
+        .cbtns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+
+        .btn.call {
+            background: #16a34a;
+            color: #fff
+        }
+
+        .btn.zalo {
+            background: #0068ff;
+            color: #fff
+        }
+
+        footer {
+            background: var(--surface);
+            color: var(--text);
+            border-top: 1px solid var(--line);
+            font-size: 15px
+        }
+
+        .ft {
+            max-width: 1200px;
+            margin: auto;
+            padding: 44px 16px 34px;
+            display: grid;
+            gap: 36px;
+            grid-template-columns: 1.1fr .9fr 1.6fr
+        }
+
+        .ft h4 {
+            margin: 0 0 16px;
+            font-size: 17px;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: var(--text)
+        }
+
+        .fbrand svg {
+            width: 130px;
+            height: auto;
+            display: block;
+            margin-bottom: 12px
+        }
+
+        .fbrand p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        .fbadge {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .fbadge span {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--brand)
+        }
+
+        .flinks {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .flinks li {
+            margin-bottom: 12px
+        }
+
+        .flinks a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color .2s, padding .2s
+        }
+
+        .flinks a:hover {
+            color: var(--brand);
+            padding-left: 4px
+        }
+
+        .fct {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .fct li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 13px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        .fct svg {
+            width: 20px;
+            height: 20px;
+            flex: none;
+            margin-top: 2px;
+            fill: none;
+            stroke: var(--brand);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .fct a {
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        .fct a:hover {
+            color: var(--brand)
+        }
+
+        .fct b {
+            color: var(--text)
+        }
+
+        .fbot {
+            background: var(--hero1);
+            color: #b9c8de;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 13.5px
+        }
+
+        @media(max-width:860px) {
+            .ft {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .fbrand {
+                grid-column: 1/-1
+            }
+        }
+
+        @media(max-width:560px) {
+            .ft {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 34px 16px 24px
+            }
+        }
+
+        .float {
+            position: fixed;
+            right: 14px;
+            bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 70
+        }
+
+        .fb {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .35)
+        }
+
+        .fb.call {
+            background: #16a34a;
+            animation: pulse 2s infinite
+        }
+
+        .fb.zalo {
+            background: #0068ff
+        }
+
+        .fb svg {
+            width: 26px;
+            height: 26px;
+            fill: #fff
+        }
+
+        .fb.top {
+            background: var(--brand2);
+            color: #1b1b1b;
+            border: 0;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: .25s
+        }
+
+        .fb.top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: none
+        }
+
+        .fb.top svg {
+            fill: none;
+            stroke: #1b1b1b;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, .6)
+            }
+
+            70% {
+                box-shadow: 0 0 0 16px rgba(22, 163, 74, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <a class="logo" href="#top">BẢO<b>LAI</b></a>
+            <button class="burger" aria-label="Menu"
+                onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+            <nav id="nav"><a href="#gioi-thieu">Giới thiệu</a><a href="#san-pham">Sản phẩm</a><a href="#bang-gia">Bảng
+                    giá</a><a href="#lien-he">Liên hệ</a></nav>
+        </div>
+    </header>
+
+    <div class="hero" id="top">
+        <h1>Keo silicon &amp; keo dán xây dựng<br>chất lượng cao</h1>
+        <p>Công ty TM QT Bảo Lai – nhà cung cấp keo silicon, keo dán, keo bọt nở và keo chít mạch cho xây dựng, nội thất
+            và quảng cáo trên thị trường Việt Nam.</p>
+        <a class="btn gold" href="#bang-gia">Xem bảng giá</a><a class="btn ghost" href="#san-pham">Sản phẩm</a>
+    </div>
+
+    <section id="gioi-thieu">
+        <h2>Giới thiệu công ty</h2>
+        <p class="sub">Bảo Lai International</p>
+        <div class="about">
+            <div class="card">
+                <p>Bảo Lai International là công ty thương mại quốc tế mới nổi ở Việt Nam, tập trung vào nhập khẩu keo
+                    silicon và keo dán chất lượng cao từ Trung Quốc, bán và phân phối tại thị trường Việt Nam.</p>
+                <p><b>Cam kết</b> cung cấp sản phẩm chất lượng cho ngành xây dựng và công nghiệp, đáp ứng nhu cầu ngày
+                    càng tăng của thị trường về keo siêu dính thân thiện với môi trường, bền vững và hiệu quả cao.</p>
+            </div>
+            <div class="card">
+                <p>Công ty dựa vào khả năng sản xuất mạnh mẽ và công nghệ tiên tiến của Trung Quốc, kết hợp với nhu cầu
+                    thực tế của thị trường Việt Nam, cung cấp cho khách hàng một sản phẩm chất lượng cao, hiệu quả và
+                    đáng tin cậy.</p>
+                <p><b>Mục tiêu:</b> thông qua chất lượng sản phẩm và dịch vụ, trở thành một nhà cung cấp hàng đầu trong
+                    lĩnh vực keo silicon và keo dán trên thị trường Việt Nam.</p>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Kinh doanh cốt lõi</h3>
+                <p><b>1. Keo silicon:</b> thích hợp cho xây dựng, trang trí, xe hơi, điện tử và nhiều ngành công nghiệp
+                    khác; chịu nhiệt độ cao, đáp ứng nhu cầu của nhiều khách hàng.</p>
+                <p><b>2. Keo Bond:</b> kết dính mạnh mẽ, dùng rộng rãi trong thiết lập nội thất, trang trí nội thất,
+                    biển cố định. Dán không cần khoan, giảm thời gian và chi phí xây dựng.</p>
+                <p>Ngoài ra còn có các sản phẩm bong bóng polyurethane (keo bọt nở), gạch men và keo dính trang trí.</p>
+            </div>
+            <div class="card">
+                <h3>Lợi thế cạnh tranh</h3>
+                <p><span class="num">1</span>Chất lượng sản phẩm: cơ sở sản xuất tiên tiến, trung tâm nghiên cứu phát
+                    triển ở Trung Quốc.</p>
+                <p><span class="num">2</span>Chất lượng dịch vụ: hiểu sâu nhu cầu thị trường Việt Nam, cung cấp giải
+                    pháp phù hợp.</p>
+                <p><span class="num">3</span>Bảo vệ môi trường &amp; an toàn: đạt tiêu chuẩn môi trường quốc tế, không
+                    độc hại.</p>
+                <p><span class="num">4</span>Giá cả phải chăng: quy mô mua sắm và quản lý hậu cần hiệu quả, giá cạnh
+                    tranh.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="san-pham">
+        <h2>Giới thiệu sản phẩm</h2>
+        <p class="sub">Dòng keo BL-BOND – dùng trong nhà và ngoài trời</p>
+        <div class="tabs" id="tabs"></div>
+        <div class="grid" id="prods"></div>
+    </section>
+
+    <section id="bang-gia">
+        <h2>Bảng báo giá sản phẩm</h2>
+        <p class="sub">Ngày 06.08.2026 · Đơn vị: VNĐ</p>
+        <div id="prices"></div>
+        <p class="note">* Giá chưa bao gồm các chi phí phát sinh khác. Vui lòng liên hệ để nhận báo giá chính xác theo
+            số lượng.</p>
+    </section>
+
+    <section id="lien-he">
+        <h2>Liên hệ</h2>
+        <p class="sub">Gọi điện hoặc nhắn Zalo để được tư vấn và báo giá nhanh</p>
+        <div class="contact">
+            <div class="card">
+                <h3>Trụ sở chính</h3>
+                <p>Số 99 Cộng Hòa, P.4, Q.Tân Bình, TP. Hồ Chí Minh</p>
+                <div class="cbtns"><a class="btn call js-call" href="#">📞 Gọi ngay</a><a class="btn zalo js-zalo"
+                        href="#" target="_blank" rel="noopener">Chat Zalo</a></div>
+            </div>
+            <div class="card">
+                <h3>VP Hà Nội</h3>
+                <p>Số 18, A19, Khu A Geleximco Lê Trọng Tấn, xã An Khánh, huyện Hoài Đức, Hà Nội</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ft">
+            <div class="fbrand">
+                <svg viewBox="250 420 610 740" aria-label="Bảo Lai">
+                    <g fill="var(--brand)">
+                        <path d="M318 436H692C786 436 838 488 838 566C838 626 806 668 758 684H736V521H296Z" />
+                        <path
+                            d="M575 690H758C812 706 838 758 838 826C838 898 792 938 726 938H618L632 872H736V780H548Z" />
+                        <path d="M545 600H405L272 938H578L600 858H470Z" />
+                        <rect x="48" y="1023" width="1004" height="5" />
+                        <rect x="48" y="1143" width="1004" height="5" />
+                    </g><text x="552" y="1124" text-anchor="middle" fill="var(--brand)" font-family="Georgia,serif"
+                        font-size="108" letter-spacing="40">BAOLAI</text>
+                </svg>
+                <p>Công ty TM QT Bảo Lai – nhập khẩu và phân phối keo silicon, keo dán chất lượng cao cho ngành xây dựng
+                    và công nghiệp.</p>
+                <div class="fbadge"><span>Chính hãng</span><span>Giá cạnh tranh</span><span>Giao hàng toàn quốc</span>
+                </div>
+            </div>
+            <div>
+                <h4>Thông tin</h4>
+                <ul class="flinks">
+                    <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="#san-pham">Sản phẩm</a></li>
+                    <li><a href="#bang-gia">Bảng báo giá</a></li>
+                    <li><a href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Liên hệ</h4>
+                <ul class="fct">
+                    <li><svg viewBox="0 0 24 24">
+                            <rect x="3" y="7" width="18" height="13" rx="2" />
+                            <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+                        </svg><span><b>Công ty TM QT Bảo Lai</b></span></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.800-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.500" />
+                        </svg><span><b>HCM:</b> Số 99 Cộng Hòa, P.4, Q. Tân Bình, TP. Hồ Chí Minh</span></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.800-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.500" />
+                        </svg><span><b>HN:</b> Số 18, A19, Khu A Geleximco Lê Trọng Tấn, xã An Khánh, huyện Hoài Đức, Hà
+                            Nội</span></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                        </svg><span><b>Hotline:</b> <a class="js-call js-phone" href="#"></a></span></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path d="M21 12a8 8 0 0 1-11.500 7.200L4 21l1.800-5.300A8 8 0 1 1 21 12z" />
+                        </svg><span><b>Zalo:</b> <a class="js-zalo" href="#" target="_blank" rel="noopener">Nhắn tin tư
+                                vấn nhanh</a></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fbot">© 2026 Công ty TM QT Bảo Lai. Bảo lưu mọi quyền.</div>
+    </footer>
+
+    <div class="float">
+        <button class="fb top" id="toTop" aria-label="Lên đầu trang"><svg viewBox="0 0 24 24">
+                <path d="M5 15l7-7 7 7" />
+            </svg></button>
+        <a class="fb zalo js-zalo" href="#" target="_blank" rel="noopener" aria-label="Chat Zalo">Zalo</a>
+        <a class="fb call js-call" href="#" aria-label="Gọi điện"><svg viewBox="0 0 24 24">
+                <path
+                    d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.300.2 2.500.6 3.600.1.300 0 .700-.2 1z" />
+            </svg></a>
+    </div>
+
+    <script>
+        // >>> Đổi số điện thoại / Zalo tại đây <<<
+        const PHONE = "0886240888";
+
+        document.querySelectorAll(".js-call").forEach(a => a.href = "tel:" + PHONE);
+        document.querySelectorAll(".js-zalo").forEach(a => a.href = "https://zalo.me/" + PHONE);
+        document.querySelectorAll(".js-phone").forEach(e => e.textContent = PHONE);
+        const toTop = document.getElementById("toTop");
+        toTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+        addEventListener("scroll", () => toTop.classList.toggle("show", scrollY > 300), { passive: true });
+        document.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => document.getElementById("nav").classList.remove("open")));
+
+        const P = [
+            { n: "BL-BOND A300+", g: "keo", c: "#b8860b", t: "Liquid nails siêu bền", d: "Có thể thay thế đinh để sửa chữa và kết dính gỗ, bảng thạch cao, MDF, đá, kim loại, nhựa, cao su… mà không cần khoan bề mặt.", f: ["Không độc hại, không chứa chất gây ô nhiễm", "Không chứa formaldehyde, benzene", "Độ bám dính cao, dùng được trên hầu hết vật liệu", "Chống chịu thời tiết, kín nước tốt", "Có thể trát, sơn dầu sau khi khô"], u: ["Nội thất: kính thủy ngọc, viền nhôm, tay nắm cửa, pha lê, đá, kim loại", "Trang trí: thanh gỗ, đường viền khung, thạch cao, gạch men", "Triển lãm: dán poster, tranh, biển hiệu, tủ trưng bày"] },
+            { n: "BL-BOND A500", g: "keo", c: "#6a9a1f", t: "Keo dán ngoại thất", d: "Dán tiếp điểm, không chảy khi dán mặt thẳng đứng. Dùng cho gỗ, thạch cao, ván ghép, vữa hồ, nhôm, sắt mạ kẽm, thép, bê-tông, tấm fibro; đặc biệt thi công biển bảng quảng cáo.", f: ["Chịu nắng trực tiếp lâu dài, dán chữ Mica/Alu không bong tróc", "Chống nước, kháng khuẩn, không ẩm mốc", "Không chảy trên bề mặt thẳng đứng, nối khe hở", "Độ dẻo tốt, chịu thời tiết khắc nghiệt", "Kháng nước tuyệt hảo, độ đàn hồi lâu dài"], u: ["Biển bảng quảng cáo", "Vật liệu xây dựng ngoại thất"] },
+            { n: "BL-BOND A900", g: "keo", c: "#1f5fb8", t: "Keo chữ quảng cáo – trong suốt", d: "Keo chuyên dụng đầu tiên trong nước dán chữ quảng cáo PVC, acrylic, chữ khắc, pha lê, kim loại, mica, nhựa epoxy.", f: ["Siêu trong suốt, bám dính mạnh, đông cứng nhanh", "Định vị mạnh, điều chỉnh được trong thời gian ngắn", "Thay thế keo hai mặt + keo vách ngăn truyền thống", "Dễ dùng, tiết kiệm thời gian, công sức, chi phí"], u: ["Dán chữ quảng cáo các loại"] },
+            { n: "BL-BOND A900+", g: "keo", c: "#d2531b", t: "Keo chữ quảng cáo – cải tiến", d: "Phiên bản cải tiến hoàn toàn: siêu trong suốt, lực bám cực mạnh, đông cứng siêu nhanh, độ cứng cao hơn sau khi khô.", f: ["Định vị mạnh hơn, tự phục hồi trong thời gian ngắn", "Dán trực tiếp, không cần keo hai mặt hỗ trợ", "Đảm bảo sự phẳng phiu và thẩm mỹ của chữ", "Lựa chọn số 1 của thợ thi công ngành quảng cáo"], u: ["Chữ PVC, acrylic, kim loại, mica, epoxy…"] },
+            { n: "BL-BOND A100 Acrylic", g: "silicone", c: "#c0392b", t: "Chất trám Acrylic", d: "Trám các khe viền nội thất yêu cầu co giãn mới nối thấp: tường bê tông, bê tông bọt, thạch cao, tấm sợi xi măng, gạch, nhôm, PVC, gỗ…", f: ["Thi công tốt, không chứa dung môi", "Bám dính tốt nhiều bề mặt, có thể sơn phủ", "Ít khí thải khi lưu hóa, không độc hại", "Dễ dùng ngay khi mở nắp, khô nhanh"], u: ["Khe hở lớn cần sơn phủ, đường ống, khe cửa, cửa sổ, mối nối gạch ngói", "Chỉ dùng trong nhà, không dùng nơi ẩm ướt, có nước"] },
+            { n: "BL-BOND A350 Acid", g: "silicone", c: "#2f9d8f", t: "Silicone Sealant lưu hóa axit", d: "Chất lưu hóa axit một thành phần, ứng dụng được trong mọi thời tiết. Lưu hóa ở nhiệt độ phòng, tạo cao su silicone bền và linh hoạt.", f: ["Lưu hóa Acid, lưu hóa nhanh", "Co giãn và đàn hồi hoàn hảo", "Bám dính tốt trên hầu hết vật liệu"], u: ["Trám trét, chống thấm cửa sổ, cửa đi", "Hệ thống trang trí nội thất, vách kính, phòng tắm, bể cá"] },
+            { n: "BL-A550 Oxime", g: "silicone", c: "#7d8a1e", t: "Silicone trung tính Oxime", d: "Keo một thành phần đóng rắn Oxime trung tính, không ăn mòn, thân thiện môi trường. Chống thời tiết, lão hóa, tia cực tím, Ozone, nước. Bám tốt không cần sơn lót.", f: ["Gần như không mùi, không chảy xệ, thời hạn dùng lâu", "Thi công từ +5°C đến +40°C", "Chịu nhiệt sau lưu hóa từ -40°C đến +150°C", "Không ăn mòn kim loại"], u: ["Kính, khung cửa, cửa sổ, bê tông, vữa, xi măng sợi, đá, gốm, sứ"] },
+            { n: "Keo bọt nở BL Foam", g: "khac", c: "#333b47", t: "PU Foam – 750ml", d: "Nhựa tổng hợp phản ứng với độ ẩm không khí tạo foam, trương nở lên tới 100 lần. Bám dính tốt, ngăn không khí và ẩm thấm qua. Không chứa CFC.", f: ["Cách âm, cách nhiệt, chống thấm, trám khe nứt", "Phun được trên tường thẳng đứng, trần nhà mà không chảy", "Có thể cắt, phủ cát, trát thạch cao và sơn", "Chống cháy lan, cường độ nén và mài mòn cao", "Giúp tiết kiệm chi phí năng lượng điều hòa"], u: ["Xây dựng dân dụng, công nghiệp, kho lạnh, điện lạnh, ô tô"] },
+            { n: "Keo chít mạch Bảo Lai", g: "khac", c: "#b5651d", t: "Keo chà ron polyurea 2 thành phần", d: "Chế tạo từ polyurea aspartic, chất đóng rắn chuyên dụng và nhiều loại sắc tố cao cấp (bột màu, hạt màu).", f: ["Không chứa benzen, formaldehyde, nonylphenol", "Chống bẩn, chống mài mòn, chịu thời tiết khắc nghiệt", "Không phấn hóa, ố vàng, co ngót, sụt lún", "Chống nước, chống mốc, cứng như sứ, bền như mới"], u: ["Lấp đầy khe vữa gạch, đá marble, gạch mosaic, gạch sứ", "Trang trí phòng tắm trong và ngoài nhà"] }
+        ];
+        const IMG = { "BL-BOND A500": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzf/wAARCAG4AFIDASIAAhEBAxEB/8QAHAAAAgMBAQEBAAAAAAAAAAAAAAQFBgcDAQII/8QARhAAAQMDAgMEBQgGCgEFAAAAAQACAwQFERIhBjFBBxMiUTJhcYGxFBUjYnKRocEkM0JzgtEWJTQ1UlNjkrLwoiZDVJPx/8QAGwEAAgMBAQEAAAAAAAAAAAAAAAMCBAUGAQf/xAA3EQACAQIEAwUGBQMFAAAAAAAAAQIDEQQSITEFQVETMmFxsRQiIzOhwTSBkdHwQlJiBnKywuH/2gAMAwEAAhEDEQA/ANxQhCABHJC5znEMh+qUAco62KSXu25yeRxsUyoOk2mYfJwU4gAQhCABCEIAEIQgAQhCABcaw4pZT9Ursl684pJPYgCIhON/IhTwOQCoCLcH2KdgOqFh+qF6wPtCELwAQhCABCEIAEIQgAStyOKN/uTSTupxSH1uCAIyFTFEc0zPZhQ8HNStuP6PjycV6wGkIQvABCEIAEIQgAQhCABIXg4p2Dzcn1HXk/RxD6xQAjD6QUlbT4ZG+TsqNh9IKQt20sg8wCveQD6EIXgAhCEACEIQAIQhAAoy9H9UPapNRV5P0kQ9RQArD6QT1EcVR9bSkIjuE5THFWz7l6wJRCELwAQhCABCEIAEIQgAUReT9NH9lS6h71+vZ9lAC0XMJxnhqIz6wk4ehTZ2kjPrC9AlkIQvABCEIAEIQgAQhCABQt5P6S37KmlC3sfpDPsoAXhPh96ZlOzSlYPR96Zl9BqAJlpy0HzC9XxAcwsP1QvtAAhCEACEIQAIQhAAoe9j6aPH+FTChb67E0X2UALQtc1u4TEhzG3zSkT8gc/vTzcGnz11IAkqM5poz6l2S1vOaYDyJCZQAIQhAAhCEACEherlHabfJVyjIbsB5kqkP48nkcdDH48o2fmV45JbgaMoDiQ4nh+yVWW8ZVZI/R5nD1uC5TcRVFS8GS2vOOolz+Sh2sOqCxNRP23wpCOX9GI25qrtuhd6MM7fVhNQXIEYdLKwHzYP5IVWH9yPbMuNpdqp3faTqq9JWiKLMVzp26t9MgAK+3cQzwnxGlnHmx+D+ampILMsqFCUPEtHVTNhe18MjjgatwT7VNr08BCEIAiuJ42SWabWwO04IyM4OVnp5OHqWh8TyiGw1spBIZGXYHVYfPxhUtMgp7ZK/AztC4/msPiuErYipF01yGQdi3tXdh5qgf0yu5e3TZajBH+Q5MDi68gnFlqCP3JWU+EYp9P1Jpovjea7MJ6FZ5FxreNeH2KpA9cDkwzjm4NcA+y1AGf/AI7v5pUuD4q+y/UkpI1e3tDqZmWjfPPfqoWqjhfI7VDGdz+wEjY+K5J6OJ0lIWEl3hcwt6+1V6p4+oo6mSKWme0hxG+fP2FOrcPxihFQjqvEE1zLPDR05qI9DXRuLxu1x+C0gcgsws9xjr46arja4RyPGOu3mtPHJbXCHV7OSqu7TEztc9QhC1iBGcTZ/o/cdJIIp3kEdNlgNzptd+oG95K2nmgEk4MryMN3dzO2y/Ql6aX2itYACTA8YPXZfnye13ueofNFQUbvAWNe6ocTjlj0+SqYlqLTcrbjqSb2VyLpLayPjeShqnPfCGvkp43vOmTbUwesfyRfmAWO31s8XyOvlkeySJjSwPaP2tPTyXCoprj85RUlRT2g1o0ta2R7i4E7gA5TN5pbjRSRuulPaBI8eHvXOe7A952Sl34vNyX57+v2J/0vQ+bFFNU8H3SSOndLUxzsbFIGEvwSM4I/6FwsVLWy39tJWy1EUdO8vqg6VwDGNGTnB28k/wDIb5baL5W6mtUFGcOEjJnNac8js7qvu30F5qKqobQ0NsklAaZzFUPBIcMjJ1jOV5nWWbzKz53Wmy6/y57Z3irF5pGPoKhrY6iV1NLIZIcyOILHaSAN+XMKg8b1tTFxBcqJs8opmylvdueXDHvV14cfU1VFHC+KmfUQzPaxjKpx04A2GX89lVb/AGW9VlfPNNYg6V5I775USR5bF5ypRlGm452tuq18TxpyTyotnAx1WK3c9njcOx1WzDkFjPB8E1HZqWCrjMcsTxqa5urG5xyWzN3aPYocPabqW6iqm56hCFpCxe4DNBUD/Td8FjkErm4bPWNhMcznaGYcHs6AnHvWy1YzSzD6h+Czg51nfbffKwuNTyqOl/55MfQqODKCy3zS8V/OU0sDaYT95vIXamhulo042PXPRdOI7fU3K6TPppafuKimbT9495BiGrLtsb5/NXlpOBuUwGybbOWSuITUlOML2Vv5oN7RNNPzKjxDSx3K20lrpZoxTiRgmcXaSGNHTbffH3L3gym+ZLXO2sqIX1ckhdgSZBAaA0Z9yuTA8bkOx5pS5Xy22p8bLjWx07pASwPzuB7Ej2qcqXYKDd3e3N8+gztvez2IvgihqKVkUtwfTNDHyyEsl1F73439WyfuFbSCpeDUw8+WsKTs/Eloqo3dxcIpAD01fySD73bKy5yUdLWxy1LcuMTc5AHNWcZOrViqk4NW+n0ClWyXSQrQzNlfI6CTWA9m8RBxzWqx7xs9gWYyEb6g0jUPSzjn6lplMc08R82D4LW4JJSpSsVK0s07nRCELbFHxOMwyD6p+Cwe7R1dDequSluUUQOZS0TYzkkYxyJ9S3l4yxw8wVi9fwv8uvNTUy1QYx0hwyJup3vPRVsROMNZbFXFQlNLItRehvFZNwtXVkjx8oicWNe1oaRnSM7ddyo+k4euVfTR1MMkLmyDV4p/F71ZKay0kVqqbdTvcWzZD3OeHkOxty5chskeH7P80VxmqbhQnEbmFrZcOycdD7Fm0q0FCo6S1WtrW5dBFShOcoKpqvPYipqK6cOzxVL5WNcXbCOXVnHQjyS3bCQamzytGA6N5x5eifzVgq+Hhc79LUx19G6GWQOcxkmp+nAzsFCdsgBfaHAYH0oHq9FS7SDxdJc9fQdgqU4Z/wC3SxIcH2dsNLFKz5QRMxjiTpwSW522Strp2UvaXNG3OTTuPi57sBUpwbCX2+lc1r3ZiiBcGZydGw5+SQY0x9qJGMB0BwCOQ7vl+Cu4/wDDVPJk8LUnKbUnfX7+SLY8HLtOrOR6JGefrWkUZzSQn6g5+xZtLjxZ08x6QJC0ih/sUGP8tvwWbwH5Ui5U3O6EIW8LPDyKwziCy1FbfqyWnqKVmJcFkk2h3ILdFi/FPD4uF9mmgraZj9WHRSHcH3erCRWkotNlbFQcoJJX1IywmWjsV9DHjvYSRqYcjOCMg/mlLfZYquijmddqGBzuccrsOHtVjsVphttuqqeoqIZu8JM+h2zG6Tseo2yd1Ft4XpJmB9NeqYxH0S7Tn/kqEKsc8/Pp4Ip1KE3CHu302v4iFbbG2tsc8F0pKiTVsKd+XNPPK87XJDLQWOdw8Ugc4+0taSpSHhigp5GyVt6p+5zuGFoLvVnKS7Ymsdb7QY8aO9cGaTtjQMY9yW5p4mivF/8AFljA0pQc7qy00vcleDCfmqhawhrpKdh1NlGXYGNx05+rKjnamdqFPG/c/J3HOMHGg4Cb4ABFupCXku7pp1HwgDfbYZ29qXuLGx9rNIWafpISSW5wTocOvsV/G/h6nk/QZg378lfm/UtkgOXaQ7O3onBWi285oaf923r6lnUw9Pny6Ox+K0S2b2+m/dt656LK4A/hyLtTcZQhC6AWCw7ju3Nkv80wq6Zr3TNj7pziHDO2fYtxWQ8Y8PfOl+qJmVscbw7BjLcn4pFeSjZsrYqDnTslcjuGrY6kZdaeeopnNewNL4ZQ8NGl258ufVQNbBaqenDKSsnq5QcF4jDI/wAdyrLw9Yqi2Gvjnlieydoa10ZyRkHmDy5pSDg6N4Mcd2ie5vNrWAke4OVCNaEZzu+noU6tCpKlFRjrr6kTbrFW1jBMGMggP/vVDxG33Z5+5M9rkfd2OzNDmu0SBupvJ30Y3Hq2Th4Ti73umXmlM+cd0/APs2JOfcle1qEwcN2mIuDjFM1hIGASIyPyS51IuvRs+f8A1Y/AUXTzXjb87nPs7goI44JI5S6pewF7e/GAdR/Z5+XVOX0FvavbCXaswAZxj9l6S7ObOwxw1jXTOe9mXNa0aR4iMfgm7/C2DtRtGnV448nJzvh4/JaOMV8PPyfoWqDi6jtK5a5sYfktAxuXDIHuWhWo5ttMc5+jbvjHRZ/LnL8Ejb9nmr9ZiTaqUnOe7HM5WNwB+5JFipuOoQhdELBYr2iUD6m/VM0csYLCwaHOw46nEZHvIW1LNr+KOHiapmmmAlbCS5j2ZboDs6s+aRXlkWa1xGIgqkMrKlwtTzW6vu8EjmOmihByx2oZG43SNglbQWyruPyyJtQ6J0McOT3mXY8XxKnOG6GGGsra2lr4aqKbbSxpBaS7O4PqXOTg2B8r3U9Y6KFzs6HR6i31A53WbLFUadaUZuz0KboVXTi4K9r8yvMt2m1tr5KmJhe8tjhOdbwDguHqBTvaS99TwRZ5pSXSOlZqcep0uGfwUpd4rC91NQyXCanNA10Ja2AuzvkknzzlKdqXcO4Nt7qT+z9/H3W2PDocApVJLtaVl/V9mMwNLJUmrrbqc+zWCb5BE57+8aQS1owO7Gs7Z67glduKWlnaZYnl272DbION3Dokezanqe7glfUsNM4Eth7sucBqwd8eYOye4waG9onDrwAA4NGAMftO/mtDFL4E/J+g7D6VparnsWmc418saTzGyv1j/uik/djkMfgqFLnW4DPI8jhX2xnNopcHP0Y65/FYfAO7Iu1B5CELoxYLH+0uSKC6VjSJO/qImxxkejjVk5/BbAsw7QKi1wXpvzpC9xaQ+NzdwD5EeSTXdkmIxKvTtexW+GIGUXEdVRwTOlY2ACQubjxgjI9xykabiy6ta8OMEuHek6IZ/DCnrNUWioutVLbZJHVdQ3XIXAgAZ3xkbbkKRpLrbiHiKtpm4cQ4agzf2HCxq9aKqO9Jy25X6iIUm6aUamXco1ZcpK8yPmpKZkj3anSxxkOJ9uU9x/v2dWw+UkXwcFJXmndXVVQ88R0Yo3ODmwumc7T/AAjKR7QomR9ndGyKZs7WSxYkYCA7d3LO6s1tZ0n/AJL7kMDCUa07vl9yN7PKSSNlNWmrl0HUWwBpIGD55wDt5KX4yx/TPhh4DQS5uzft/FU/gOEzV7mGXR4DpBPXI3Cs3FrZG8d8PGWQPy6Pkdh4vJaOIXwZeT9C/ThJVMzehdJsaneeDtjKvVh/uelzn0OowqJMCXnbmCOeFeuHwRZ6UHGdHT2rB4A9JDqhIoQhdGLBZt2gUtqmuLjdntZt4CZS0+4LSVlHazA11fDLO2X5O0Ye6IDLc4xzSK8c0Ur21E4h5abdrkVw5TWiC9ONsrpZXGE5jczI5j9rb4KEqLZQxCrk+ead8rXOLYY4nkuOeWSBhSvDMVpiurX2+sqJHmB2Y5YQPxBQ/hu3RVUprbu2N0ji8R+FpAJz1KpucYVWnvZffoZ8qcqlFZYrd89OXiQsNFSfNpqjcYxUA4FLoOo7+fs3Ulxk3V2Z0gH+OP8A5uTVTZLB3xmZd2QRczE1zZCPYc5/Be8fGldwCDQu1UzXxCMjPIOx165ykVql50rJ95cmOwFFwqSbtt1vfxKhwc9rJnxtadTmZ1AeRCnuMHh3HNgIbjD4sn+JV3hEgzv3drETiPVspviaQu4tsZe4F2Yd/wCJa+I+TLyZpxL7N6ZxnODy5q8cOgizUwIIOnqcnmqNL+tPsPJXfhn+5aflyOcHPXzXO/6ffeJVCUQhC6UUCzztGujbVWxukg76KZhD25/nstDWe9o0Pf3GmhMMcjZo3R6pG5DCRsfVuEmvGMo2lsKrOSg8u5U7DPZqi9sfQU1RBM6N2W+Hu/Xtz+5Q9PRwV1wr5Lhc46WQTO/WMJLtz8FJW2GCj4ohpYIu7dFAWynWXB79GSRnku96pOH33F7qyrkp6l28jYfEM+ZGDg+9Us6VfJZ6pa79TOlBypXdtG/BcvIjn2i0sje4cQQOIGQBC45+4pnieOIdmzWQy98wPbh+ktz9KehXMUPC7gWi7VTXHkTFkD2+FOcYUsVJ2evgppu/iaY3NlwBqBkBzt7UrESSdNf5L1G4CFqraS25O/3KfwsCHvGwaY3AnHqTV5d/6hsTi7PiiA/3BR3D0hbJz/ZPwTV7di/WU9BJGP8AyC1q3y35GpFGnzfrSParrwuc2WDn16Y/DoqXN+uPvVy4TINli04xk8jnr59VzvAd5HtQmEIQukFgqdxkXNrWYJGY+iuKqHGg/Soj/p/ms7it/ZJWPY7lcjgp/lAqDTxd/jHe6fFjGOfsVP7u3Ovdey7vqmvM7gzuQOrjzz7lc2eiFwns1DVVXymopC6bbLw9zckexYeAx3Z5u2be2u4jFYZ1EsiRBX2y2e00/jlrXVEgcIQC0tyMc9uW65XNrj2YSh+f1mW+zvB+eVLcTVdOKlkVXaZKlsbO8Eglcxo1cxsPUluIKllZ2eVEsNO2njaAxsbXag0NeOq0qjn2VKUt3KPqV8PGnHFyUbKyempn1kJ+VNA8j8FJ8Qlzb3ZwRsXxuH+4KJszy2oaB1BB+5S3ETcXSzkknxRnP8QWzU7jNKJp820/3q48Jgizs1Z9I8/+7Kmzf2j71cuEyDZYsYxqOMclzvAt5BUJlCELpBYKpcbD6WnPmw/FW1VXjdvhpnepw+CocUV8JM9juVmP0Qq3XWm9SXirnoQ9kUj9Qc2cMDhj2qxRnYKOquIqWir5qWeCb6PHjYQdWQDy6c1zvDKlaObsY5npzsKxkaTiu1lZENWUd7gge2tqiGaclj6xpLh9nO6aqxns0qx5F3/Nq+6+6WC4Sieppq58oYGgNc1oIH/6u1xkpZuz6uNFA+CIB/gfJrOct3zhbeKbdODkrPNH1Rn4KMViXlldWfP/AMM5swPypg88/BS/EmRW2Vx66cf7gkuFSz53g7wMLN86m5xspPjZ2LlanZbjU0gN5AEg45notSp3GbEdjR5z9Mfarnwq4utDCcA6jsDnCpcp+n96uPCBzZmDycemPwXN8B70gqE2hCF0wsFW+Mm6oaf2lWRV3jMOFJA9oJ0vOcDO2FVxsHPDyiiUFeSRUQ3AwoW7y2GnuDjXUss1S9oL9DjgbbdRvjCmWOLm6i0g9R5KsXZ1NScRTy3CkNTDLG0sbrLegGfwK57hEfizT5LYrcQbhBXS3562OzKzhfGDbajf6x2/8lIXdtCOBa/5ryKcxPd4iSQ7bOc+wKJdcbF3TgyyODiDpJnOxTFNG8cA3YvBDXtkLc9cNGT961cZD3Iu7VpR9UUsDU+Pl0ej2VrfQpXCT8XqDOTqy3bGeXTPVSfHrgay2nxlzZAMv58wonhUf1vEC0ljg5ryGkkNI3IxvlPcaaBPbxE9xjY4Na1zSC0DGOe61J91mvE02XeYe1XHg/ezg7byO5HP49VTJT9I1XPg8/1Tg9Hlc3wJWnI9mTiEIXTCwVe43lfT2ps0ZIcx+xB9RVhUDxlSmstHctcA4vGnPLO6AKHRyPkjhlfsZmucQ30eZ5fckbxeKekrfklZb46mIRh4LtyCfan+5fDTU1LUAMfGS1wzvkuJH4b+9RPEl5rKKrbT0rmRAxB3eBgL9ydsnly6LEhRgsfKy5EeIzcaEZt2/K54292Ro1CyMz5EN/kn6i4i68IXSTuGwiOKRgYw5AGnKqlFLSPldJcjPIM5xE4AuPrJVohqaar4SuraOjbSxsjeNLXlxd4DuSeqbjaUVSUujXN9V1Mzh9ec61m1bXS37Izfh7R85w6wCDkZc3UGnGxx1xzwnuNTmopHHmSDnRoyOnh6dUhw/g3KAOAwSRnGcZB3x1xzwpLjdrDLF3b2nS7AAaG+vkOXMLVlsa6NLk9Jh9nwVx4LObU7y7wqluO0R+qPgrlwUc22TfJ707rmuB6VJIlMsKEIXTCwUJxgdNle7/C9pU2ofixuuySj67PiEur8tk6ffRn0RD3h7gD4Q4Y9ZO5PVMtdnY4I8iMpOE6XsHk6SP8AMfmmW81xWKq1I1m02W8Qrz12O7Gx/wCVF/8AW3+S+LjHG2zV0ccUcbXQSEhjA3J0nyX2xe1g1UFS3zhePwKrRxNZzSlNtXXNiFCK1SMbsTmtuNOXgac83HGnbnn1c/cneLTGJoe5qPlDGNDRITknmdz1/wChQ0RxjzXW5OJhjydgV9Bewo2Fu8MJ82N+AVz4J2t8w/1eSpMTs0lMepiZ8ArlwMf0OobyxJyXMcE0rSROZZkIQuoFAoviUZs83tafxClFH39pfaKgAZOnP4pdbWnK3Rnq3MxmyySpd0ZIyUfA/hlNDZxwhw1OLcZ1bY814AW7EEY23XDYhueti1OpnS8BiNdXN1wvYD6TS3PtC4xHZd2FUpXi00RRTKLs5p4yDV3CWTzETA0fecqw0vDdot4a6GjY+RvKSXxuH38lLjC8l9BXKvEcXW0lPT9PQFFIjqg7q2cCH9FqQOWsFVCpPiVs4COaeq+0FpcE+eLmWtCELrBQJO8Z+a6kjmIyU4lLqM2yq/dO+CjPusDPz3ZeHSOMUgOQcbFd2umAJDopAPVzSTpHsOCA9uORXy18JeCWOZ56SuX9ojBtbfT90ydh4xy1EhaGNDo8A4PNdo6KQ83MHnuk4nRaXHvJNWNh5plhpgRkyOPXfbKpyVGbzT1f+79kTV+QzFTw6WvlqA0HfA5omlpomjuYtZH7T0qcEkjkTsvmT0FVWJUNKcEvHd/UnbqRtW7U9xwBnoFaOz9+WVbfIgqrVPVWLs9d9NWN9QK0uDybxC/MXPYuyEIXXCgS1y/u+p/dO+CZXzKwSxvjd6LgQV5JXTQGVOeQeaGyNLsvblOXi01VtncJYyYs+CUDYj+ajhzXEV1UpTcZKw1WY7C5gG7cnHkmGPZnIjHLqkYjhMsdsqzqciaGXSBwGBjC5yHwoB2Xanoaqsdpghe762MNHvSKdOrWnaKuyV0kQ9SrdwLbZqaCarmaWibAYDzI813tnCsMT2zV7hM8biMeiPb5qxgADAGAF1vC+GzofEq79BEpX2PUIQtsgCEIQB45rXtLXAOB5gjKjajh+1zkl1K1pPVhLfghChOnCatJXAUPCduzlrpx/GP5LpHwzb2HfvXe16EJHsWGvfs1+iPbsehtdDCQY6aPI6kZ+KbAAGAMBCFYjCMFaKseHqEIUgBCEIA//9k=" };
+        // Muốn thêm ảnh cố định cho sản phẩm khác: thêm dòng "Tên sản phẩm":"đường dẫn ảnh hoặc data URI" vào IMG
+        const SP = {
+            "BL-BOND A300+": ["300ml / chai – 24 chai / thùng", "14.500 – 20.000đ / chai"],
+            "BL-BOND A500": ["300ml / chai – 24 chai / thùng", "18.000 – 23.000đ / chai"],
+            "BL-BOND A900": ["310ml / chai – 24 chai / thùng", "30.000 – 38.000đ / chai"],
+            "BL-BOND A900+": ["300ml / chai – 24 chai / thùng", "Liên hệ"],
+            "BL-BOND A100 Acrylic": ["300ml / chai – 24 chai / thùng", "16.000 – 21.000đ / chai"],
+            "BL-BOND A350 Acid": ["300ml / chai", "Liên hệ"],
+            "BL-A550 Oxime": ["300ml / chai", "Liên hệ"],
+            "Keo bọt nở BL Foam": ["750ml / chai – 15 chai / thùng", "63.000 – 84.000đ / chai"],
+            "Keo chít mạch Bảo Lai": ["2 thành phần (ống đôi)", "Liên hệ"]
+        };
+        const ST = { get(k) { try { return localStorage.getItem(k) } catch (e) { return null } }, set(k, v) { try { localStorage.setItem(k, v) } catch (e) { } } };
+        // ẢNH SẢN PHẨM: thêm đường dẫn ảnh (hoặc data URI) vào IMG ở trên, ví dụ "BL-BOND A900":"images/a900.jpg"
+        const PH = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='100%25' height='100%25' fill='%23f1f3f6'/><text x='50%25' y='50%25' fill='%23999' font-size='16' text-anchor='middle' font-family='Arial'>Ảnh sản phẩm</text></svg>";
+        const imgOf = p => IMG[p.n] || "";
+        const specs = p => { const r = SP[p.n]; return r ? `<h4>Thông tin sản phẩm</h4><table class="spec"><tr><td>Quy cách</td><td>${r[0]}</td></tr><tr><td>Giá tham khảo</td><td>${r[1]}</td></tr></table>` : ""; };
+        const imgBox = p => `<div class="pimg"><img src="${imgOf(p) || PH}" alt="${p.n}"></div>`;
+        const groups = [["all", "Tất cả"], ["keo", "Keo dán BOND"], ["silicone", "Silicone / Sealant"], ["khac", "Foam & Chít mạch"]];
+        let cur = "all";
+        const tabs = document.getElementById("tabs"), prods = document.getElementById("prods");
+        function renderTabs() {
+            tabs.innerHTML = groups.map(([k, l]) => `<button class="tab ${k === cur ? "on" : ""}" data-k="${k}">${l}</button>`).join("");
+            tabs.querySelectorAll(".tab").forEach(b => b.onclick = () => { cur = b.dataset.k; renderTabs(); renderProds(); });
+        }
+        function renderProds() {
+            prods.innerHTML = P.filter(p => cur === "all" || p.g === cur).map((p, i) => `
+  <div class="card prod" data-i="${P.indexOf(p)}" tabindex="0" role="button">
+    <div class="top" style="background:${p.c}">${imgOf(p) ? `<img class="timg" src="${imgOf(p)}" alt="">` : `<div class="tube"><i style="--c:${p.c}"></i></div>`}<div><h3>${p.n}</h3><small>${p.t}</small></div></div>
+    <div class="body"><p>${p.d}</p>
+      <div class="hov" style="background:${p.c}"><h4>Đặc tính nổi bật</h4><ul>${p.f.map(x => `<li>${x}</li>`).join("")}</ul><h4>Ứng dụng</h4><ul>${p.u.map(x => `<li>${x}</li>`).join("")}</ul></div>
+      <button class="tg">Xem chi tiết ▾</button></div>
+  </div>`).join("");
+            prods.querySelectorAll(".prod").forEach(c => {
+                c.onclick = () => openM(+c.dataset.i);
+                c.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openM(+c.dataset.i); } };
+            });
+        }
+        document.body.insertAdjacentHTML("beforeend", '<div id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>');
+        const modal = document.getElementById("modal");
+        function openM(i) {
+            const p = P[i];
+            document.getElementById("mbox").innerHTML = `<div class="mh" style="background:${p.c}"><h3>${p.n}</h3><small>${p.t}</small><button class="mx" aria-label="Đóng">×</button></div>
+  <div class="mb more">${imgBox(p)}<p>${p.d}</p><h4>Đặc tính sản phẩm</h4><ul>${p.f.map(x => `<li>${x}</li>`).join("")}</ul><h4>Ứng dụng</h4><ul>${p.u.map(x => `<li>${x}</li>`).join("")}</ul>${specs(p)}</div>
+  <div class="mf"><a href="tel:${PHONE}">📞 Gọi tư vấn</a><a class="zl" href="https://zalo.me/${PHONE}" target="_blank" rel="noopener">Chat Zalo</a></div>`;
+            modal.classList.add("open"); document.body.style.overflow = "hidden";
+            modal.querySelector(".mx").onclick = closeM;
+        }
+        function closeM() { modal.classList.remove("open"); document.body.style.overflow = ""; }
+        modal.addEventListener("click", e => { if (e.target === modal) closeM(); });
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeM(); });
+        renderTabs(); renderProds();
+
+        const T = [
+            {
+                t: "I. Dòng keo Silicone Bảo Lai", h: ["Tên / mã sản phẩm", "Chai", "Thùng", "Dưới 5 thùng", "Từ 5 thùng", "Từ 20 thùng", "Từ 100 thùng"], r: [
+                    ["1. Silicon A100 acrylic", "300ml", "24 chai", 21000, 19000, 17000, 16000],
+                    ["2. Silicon A500 trung tính (Đen, trắng)", "300ml", "24 chai", 36000, 32000, 30000, 28000],
+                    ["3. Silicon A500 trung tính (Café, xám, gỗ)", "300ml", "24 chai", 38000, 34000, 32000, 30000],
+                    ["4. Silicon A500 trung tính trong suốt", "300ml", "24 chai", 45000, 39000, 37000, 36000]]
+            },
+            {
+                t: "II. Dòng keo Bond siêu dính Bảo Lai", h: ["Tên / mã sản phẩm", "Chai", "Thùng", "Dưới 5 thùng", "Từ 5 thùng", "Từ 20 thùng", "Từ 100 thùng"], r: [
+                    ["1. BL BOND A300+", "300ml", "24 chai", 20000, 17000, 15500, 14500],
+                    ["2. BL BOND A500", "300ml", "24 chai", 23000, 21000, 19000, 18000],
+                    ["3. BL BOND A700", "300ml", "24 chai", 38000, 33000, 30000, 28000]]
+            },
+            {
+                t: "III. Dòng keo Bond siêu dính trong suốt", h: ["Tên / mã sản phẩm", "Chai", "Thùng", "Dưới 5 thùng", "Từ 5 thùng", "Từ 20 thùng", "Từ 100 thùng"], r: [
+                    ["1. A900 trong suốt", "310ml", "24 chai", 38000, 33000, 31000, 30000]]
+            },
+            {
+                t: "IV. Keo bọt nở, keo hạt nhựa", h: ["Sản phẩm", "Quy cách", "Đóng gói", "Dưới 10 thùng/bao", "Trên 10 thùng/bao", "Từ 40 thùng/bao"], r: [
+                    ["1. Keo bọt nở", "750ml/chai", "15 chai", 84000, 73500, 63000],
+                    ["2. Keo hạt nhựa", "25 Kg", "Bao", 1650000, 1320000, 1200000]]
+            },
+            {
+                t: "V. Súng bắn keo có trợ lực, nhựa dày cao cấp", h: ["Sản phẩm", "Quy cách", "Đóng gói", "Dưới 10 kiện", "Từ 10–39 kiện", "Từ 40 kiện"], r: [
+                    ["1. Súng bắn keo có trợ lực, nhựa dày cao cấp", "Kiện", "50 cái", 66000, 55000, 49000]]
+            }
+        ];
+        const fmt = v => typeof v === "number" ? v.toLocaleString("vi-VN") : v;
+        document.getElementById("prices").innerHTML = T.map(s => `
+<div class="tw"><table><caption>${s.t}</caption><thead><tr>${s.h.map(x => `<th>${x}</th>`).join("")}</tr></thead>
+<tbody>${s.r.map(r => `<tr>${r.map(fmt).map(x => `<td>${x}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`).join("");
+    </script>
+</body>
+
+</html>
