@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Bảo Lai International – Keo silicon & keo dán xây dựng</title>
+    <link rel="icon" type="image/x-icon" href="./images/baolai-logo.svg">
     <style>
         :root {
             --bg: #f6f8fb;
@@ -597,13 +598,26 @@
         }
 
         .timg {
-            width: 50px;
-            height: 84px;
+            width: 124px;
+            height: 240px;
             object-fit: contain;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
+            padding: 0;
             flex: none;
-            padding: 3px
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+            transition: transform .25s
+        }
+
+        .prod:hover .timg {
+            transform: scale(1.06)
+        }
+
+        @media(max-width:560px) {
+            .timg {
+                width: 100px;
+                height: 200px
+            }
         }
 
         .spec {
@@ -1027,9 +1041,7 @@
             </div>
             <div class="card">
                 <h3>VP Hà Nội</h3>
-                <p>L2-02B Khu biệt thự kinh doanh An Khánh, huyện Hoài Đức, Hà Nội</p>
-                <div class="cbtns"><a class="btn call js-call" href="#">📞 Gọi ngay</a><a class="btn zalo js-zalo"
-                        href="#" target="_blank" rel="noopener">Chat Zalo</a></div>
+                <p>Số 18, A19, Khu A Geleximco Lê Trọng Tấn, xã An Khánh, huyện Hoài Đức, Hà Nội</p>
             </div>
         </div>
     </section>
@@ -1076,9 +1088,8 @@
                     <li><svg viewBox="0 0 24 24">
                             <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.800-7 11-7 11z" />
                             <circle cx="12" cy="10" r="2.500" />
-                        </svg><span><b>HN:</b> L2-02B Khu biệt thự kinh doanh An Khánh, huyện Hoài Đức, Hà Nội
-
-                        </span></li>
+                        </svg><span><b>HN:</b> Số 18, A19, Khu A Geleximco Lê Trọng Tấn, xã An Khánh, huyện Hoài Đức, Hà
+                            Nội</span></li>
                     <li><svg viewBox="0 0 24 24">
                             <path
                                 d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
@@ -1106,7 +1117,7 @@
 
     <script>
         // >>> Đổi số điện thoại / Zalo tại đây <<<
-        const PHONE = "0886240888";
+        const PHONE = "0900000000";
 
         document.querySelectorAll(".js-call").forEach(a => a.href = "tel:" + PHONE);
         document.querySelectorAll(".js-zalo").forEach(a => a.href = "https://zalo.me/" + PHONE);
